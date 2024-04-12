@@ -26,7 +26,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.png" />
       </Head>
-      <div className="h-screen bg-[#18181C] text-[#D4D4D8] flex flex-col">
+      <div className="h-screen overflow-hidden bg-[#18181C] text-[#D4D4D8] flex flex-col">
         {/* SearchBro logo */}
         <Link href="/" className="absolute top-0 left-0 p-4">
           <Image
