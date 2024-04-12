@@ -9,8 +9,12 @@ type Data = {
   sources: Source[];
 };
 
-const searchHandler = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
+const searchHandler = async (
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+) => {
   try {
+    console.log("hi");
     const { query, model } = req.body as {
       query: string;
       model: OpenAIModel;
@@ -41,10 +45,19 @@ const searchHandler = async (req: NextApiRequest, res: NextApiResponse<Data>) =>
     const filteredLinks = links.filter((link, idx) => {
       const domain = new URL(link).hostname;
 
-      const excludeList = ["google", "facebook", "twitter", "instagram", "youtube", "tiktok"];
+      const excludeList = [
+        "google",
+        "facebook",
+        "twitter",
+        "instagram",
+        "youtube",
+        "tiktok",
+      ];
       if (excludeList.some((site) => domain.includes(site))) return false;
 
-      return links.findIndex((link) => new URL(link).hostname === domain) === idx;
+      return (
+        links.findIndex((link) => new URL(link).hostname === domain) === idx
+      );
     });
 
     const finalLinks = filteredLinks.slice(0, sourceCount);
