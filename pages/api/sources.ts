@@ -27,7 +27,7 @@ const searchHandler = async (
     const html = await response.text();
     const $ = cheerio.load(html);
     const linkTags = $("a");
-
+    console.log("h1");
     let links: string[] = [];
 
     linkTags.each((i, link) => {
@@ -41,7 +41,7 @@ const searchHandler = async (
         }
       }
     });
-
+    console.log("h3");
     const filteredLinks = links.filter((link, idx) => {
       const domain = new URL(link).hostname;
 
@@ -59,7 +59,7 @@ const searchHandler = async (
         links.findIndex((link) => new URL(link).hostname === domain) === idx
       );
     });
-
+    console.log("h4");
     const finalLinks = filteredLinks.slice(0, sourceCount);
 
     // SCRAPE TEXT FROM LINKS
