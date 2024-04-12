@@ -43,6 +43,7 @@ const searchHandler = async (
     });
     console.log("h3");
     const filteredLinks = links.filter((link, idx) => {
+      console.log(link);
       const domain = new URL(link).hostname;
 
       const excludeList = [
