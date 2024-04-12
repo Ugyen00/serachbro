@@ -33,7 +33,7 @@ export const Search: FC<SearchProps> = ({
   };
 
   const fetchSources = async () => {
-    const response = await fetch("/api/sources", {
+    const response = await fetch("https://serachbro.vercel.app/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
