@@ -52,7 +52,7 @@ export const Search: FC<SearchProps> = ({
 
   const handleStream = async (sources: Source[]) => {
     try {
-      const prompt = endent`Provide a 4-5 sentence answer to the query based on the following sources. Be original, concise, accurate, and helpful. Cite sources as [1] or [2] or [3] after each sentence (not just the very end) to back up your answer (Ex: Correct: [1], Correct: [2][3], Incorrect: [1, 2]).
+      const prompt = endent`Provide a 8-10 sentence answer to the query based on the following sources. Be original, concise, accurate, and helpful. Cite sources as [1] or [2] or [3] after each sentence (not just the very end) to back up your answer (Ex: Correct: [1], Correct: [2][3], Incorrect: [1, 2]).
       
       ${sources
         .map((source, idx) => `Source [${idx + 1}]:\n${source.text}`)
