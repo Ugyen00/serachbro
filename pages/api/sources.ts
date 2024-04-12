@@ -3,7 +3,7 @@ import { Readability } from "@mozilla/readability";
 import * as cheerio from "cheerio";
 import { JSDOM } from "jsdom";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { cleanSourceText } from "../../../utils/sources";
+import { cleanSourceText } from "../../utils/sources";
 
 type Data = {
   sources: Source[];

@@ -43,6 +43,7 @@ export const Search: FC<SearchProps> = ({
 
     if (!response.ok) {
       setLoading(false);
+      console.log(response);
       throw new Error(response.statusText);
     }
 
