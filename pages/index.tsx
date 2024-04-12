@@ -4,7 +4,8 @@ import { SearchQuery } from "@/types";
 import { IconBrandFacebook, IconBrandLinkedin } from "@tabler/icons-react";
 import Head from "next/head";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState<SearchQuery>({
@@ -27,9 +28,15 @@ export default function Home() {
       </Head>
       <div className="h-screen overflow-auto bg-[#18181C] text-[#D4D4D8] relative">
         {/* SearchBro logo */}
-        <a href="/" className="absolute top-0 left-0 p-4">
-          <img src="/logo.png" alt="SearchBro Logo" className="w-8 h-8" />
-        </a>
+        <Link href="/" className="absolute top-0 left-0 p-4">
+          <Image
+            src="/logo.png"
+            alt="SearchBro Logo"
+            width={32}
+            height={32}
+            className="w-8 h-8"
+          />
+        </Link>
 
         {/* Social media links */}
         <a
