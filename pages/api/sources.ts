@@ -55,7 +55,8 @@ const searchHandler = async (
         "tiktok",
       ];
       if (excludeList.some((site) => domain.includes(site))) return false;
-
+      console.log("h33");
+      console.log(link);
       return (
         links.findIndex((link) => new URL(link).hostname === domain) === idx
       );
