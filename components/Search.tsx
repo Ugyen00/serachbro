@@ -113,10 +113,6 @@ export const Search: FC<SearchProps> = ({
         </div>
       ) : (
         <div className="mx-auto flex h-full w-full max-w-[750px] flex-col items-center space-y-6 px-3 pt-32 sm:pt-64">
-          <div className="flex items-center">
-            <div className="ml-1 text-center text-3xl">SearchBro</div>
-          </div>
-
           <div className="relative w-full">
             <IconSearch className="text-[#D4D4D8] absolute top-3 w-10 left-1 h-6 rounded-full opacity-50 sm:left-3 sm:top-4 sm:h-8" />
 
