@@ -42,6 +42,7 @@ const searchHandler = async (
       }
     });
     console.log("h3");
+    console.log(links);
     const filteredLinks = links.filter((link, idx) => {
       console.log(link);
       const domain = new URL(link).hostname;
@@ -62,6 +63,8 @@ const searchHandler = async (
       );
     });
     console.log("h4");
+
+    console.log(filteredLinks);
     const finalLinks = filteredLinks.slice(0, sourceCount);
 
     // SCRAPE TEXT FROM LINKS
