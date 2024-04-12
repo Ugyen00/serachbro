@@ -26,7 +26,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/logo.png" />
       </Head>
-      <div className="h-screen overflow-auto bg-[#18181C] text-[#D4D4D8] relative">
+      <div className="h-screen bg-[#18181C] text-[#D4D4D8] flex flex-col">
         {/* SearchBro logo */}
         <Link href="/" className="absolute top-0 left-0 p-4">
           <Image
@@ -59,35 +59,37 @@ export default function Home() {
         {/* "The New Google" header */}
         <div className="text-center text-lg font-bold my-4">The New Google</div>
 
+        {/* Content section */}
+        <div className="flex-grow">
+          {answer ? (
+            <Answer
+              searchQuery={searchQuery}
+              answer={answer}
+              done={done}
+              onReset={() => {
+                setAnswer("");
+                setSearchQuery({ query: "", sourceLinks: [] });
+                setDone(false);
+              }}
+            />
+          ) : (
+            <Search
+              onSearch={setSearchQuery}
+              onAnswerUpdate={(value) => setAnswer((prev) => prev + value)}
+              onDone={setDone}
+            />
+          )}
+        </div>
+
         {/* Powered by NoMindBhutan button */}
         <a
-          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 p-2 md:p-4 cursor-pointer text-xs md:text-sm text-gray-500 hover:text-gray-400"
+          className="fixed bottom-0 left-1/2 transform -translate-x-1/2 p-2 md:p-4 cursor-pointer text-xs md:text-sm text-gray-500 hover:text-gray-400"
           href="https://www.nomindbhutan.com"
           target="_blank"
           rel="noreferrer"
         >
           Powered by NoMindBhutan
         </a>
-
-        {/* Conditional rendering for Answer or Search components */}
-        {answer ? (
-          <Answer
-            searchQuery={searchQuery}
-            answer={answer}
-            done={done}
-            onReset={() => {
-              setAnswer("");
-              setSearchQuery({ query: "", sourceLinks: [] });
-              setDone(false);
-            }}
-          />
-        ) : (
-          <Search
-            onSearch={setSearchQuery}
-            onAnswerUpdate={(value) => setAnswer((prev) => prev + value)}
-            onDone={setDone}
-          />
-        )}
       </div>
     </>
   );

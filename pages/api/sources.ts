@@ -15,7 +15,6 @@ const searchHandler = async (
   res: NextApiResponse<Data>
 ) => {
   try {
-    console.log("hi");
     const { query, model } = req.body as {
       query: string;
       model: OpenAIModel;
@@ -28,15 +27,10 @@ const searchHandler = async (
     const html = await response.text();
     const $ = cheerio.load(html);
     const linkTags = $("a");
-    console.log("h1");
     let links: string[] = [];
 
     linkTags.each((i, link) => {
       const href = $(link).attr("href");
-      console.log("testingdo");
-      console.log(link);
-      console.log("linktag");
-      console.log(linkTags);
       if (href && href.startsWith("/url?q=")) {
         const cleanedHref = href.replace("/url?q=", "").split("&")[0];
 
@@ -45,14 +39,8 @@ const searchHandler = async (
         }
       }
     });
-    console.log("h3");
-    console.log(links);
     const filteredLinks = links.filter((link, idx) => {
-      console.log(link);
-      console.log("hostname", hostname);
       const domain = new URL(link).hostname;
-      console.log("domain");
-      console.log(domain);
       const excludeList = [
         "google",
         "facebook",
@@ -73,9 +61,6 @@ const searchHandler = async (
         links.findIndex((link) => new URL(link).hostname === domain) === idx
       );
     });
-    console.log("h4");
-
-    console.log(filteredLinks);
     const finalLinks = filteredLinks.slice(0, sourceCount);
 
     // SCRAPE TEXT FROM LINKS
@@ -94,8 +79,6 @@ const searchHandler = async (
         }
       })
     )) as Source[];
-    console.log("sources");
-    console.log(sources);
     const filteredSources = sources.filter((source) => source !== undefined);
 
     for (const source of filteredSources) {
