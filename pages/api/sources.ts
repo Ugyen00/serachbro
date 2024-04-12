@@ -64,8 +64,8 @@ const searchHandler = async (
         })
       )
         return false;
-      console.log("h33");
-      console.log(link);
+      // console.log("h33");
+      // console.log(link);
       return (
         links.findIndex((link) => new URL(link).hostname === domain) === idx
       );
