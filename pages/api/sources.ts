@@ -85,12 +85,11 @@ const searchHandler = async (
     )) as Source[];
 
     const filteredSources = sources.filter((source) => source !== undefined);
-
+    console.log("sources");
+    console.log(filteredSources);
     for (const source of filteredSources) {
       source.text = source.text.slice(0, 1500);
     }
-    console.log("sources");
-    console.log(filteredSources);
     res.status(200).json({ sources: filteredSources });
   } catch (err) {
     console.log(err);
