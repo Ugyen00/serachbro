@@ -33,7 +33,10 @@ const searchHandler = async (
 
     linkTags.each((i, link) => {
       const href = $(link).attr("href");
-
+      console.log("testingdo");
+      console.log(link);
+      console.log("linktag");
+      console.log(linkTags);
       if (href && href.startsWith("/url?q=")) {
         const cleanedHref = href.replace("/url?q=", "").split("&")[0];
 
