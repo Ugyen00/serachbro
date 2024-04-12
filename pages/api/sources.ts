@@ -4,6 +4,7 @@ import * as cheerio from "cheerio";
 import { JSDOM } from "jsdom";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { cleanSourceText } from "../../utils/sources";
+import { hostname } from "os";
 
 type Data = {
   sources: Source[];
@@ -45,8 +46,10 @@ const searchHandler = async (
     console.log(links);
     const filteredLinks = links.filter((link, idx) => {
       console.log(link);
+      console.log("hostname", hostname);
       const domain = new URL(link).hostname;
-
+      console.log("domain");
+      console.log(domain);
       const excludeList = [
         "google",
         "facebook",
@@ -55,7 +58,12 @@ const searchHandler = async (
         "youtube",
         "tiktok",
       ];
-      if (excludeList.some((site) => domain.includes(site))) return false;
+      if (
+        excludeList.some((site) => {
+          domain.includes(site);
+        })
+      )
+        return false;
       console.log("h33");
       console.log(link);
       return (
@@ -83,10 +91,10 @@ const searchHandler = async (
         }
       })
     )) as Source[];
-
-    const filteredSources = sources.filter((source) => source !== undefined);
     console.log("sources");
-    console.log(filteredSources);
+    console.log(sources);
+    const filteredSources = sources.filter((source) => source !== undefined);
+
     for (const source of filteredSources) {
       source.text = source.text.slice(0, 1500);
     }
