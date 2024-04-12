@@ -15,6 +15,7 @@ export const Search: FC<SearchProps> = ({
   onDone,
 }) => {
   const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+  console.log("api key", apiKey);
   // const apiKey = "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";
   const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState<string>("");
