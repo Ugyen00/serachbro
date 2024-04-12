@@ -52,7 +52,7 @@ export const Answer: FC<AnswerProps> = ({
 
             <div className="flex justify-center items-center w-full py-4">
               <button
-                className="flex h-10 w-52 items-center justify-center rounded-full bg-blue-500 p-2 hover:cursor-pointer hover:bg-blue-600"
+                className="flex h-10 w-52 items-center justify-center rounded-full bg-red-500 p-2 hover:cursor-pointer hover:bg-blue-600"
                 onClick={onReset}
               >
                 <IconReload size={18} />

@@ -14,8 +14,8 @@ export const Search: FC<SearchProps> = ({
   onAnswerUpdate,
   onDone,
 }) => {
-  // const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
-  const apiKey = "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";
+  const apiKey = process.env.NEXT_PUBLIC_OPENAI_API_KEY;
+  // const apiKey = "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";
   const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
@@ -118,7 +118,7 @@ export const Search: FC<SearchProps> = ({
 
             <input
               ref={inputRef}
-              className="h-12 w-full rounded-full border border-zinc-600 bg-[#2A2A31] pr-12 pl-11 focus:border-zinc-800 focus:bg-[#18181C] focus:outline-none focus:ring-2 focus:ring-zinc-800 sm:h-16 sm:py-2 sm:pr-16 sm:pl-16 sm:text-lg"
+              className="h-12 w-full rounded-full border border-red-500 bg-[#2A2A31] pr-12 pl-11 focus:border-zinc-800 focus:bg-[#18181C] focus:outline-none focus:ring-2 focus:ring-red-800 sm:h-16 sm:py-2 sm:pr-16 sm:pl-16 sm:text-lg"
               type="text"
               placeholder="Ask anything..."
               value={query}
@@ -129,7 +129,7 @@ export const Search: FC<SearchProps> = ({
             <button>
               <IconArrowRight
                 onClick={handleSearch}
-                className="absolute right-2 top-2.5 h-7 w-7 rounded-full bg-blue-500 p-1 hover:cursor-pointer hover:bg-blue-600 sm:right-3 sm:top-3 sm:h-10 sm:w-10"
+                className="absolute right-2 top-2.5 h-7 w-7 rounded-full bg-red-500 p-1 hover:cursor-pointer hover:bg-red-600 sm:right-3 sm:top-3 sm:h-10 sm:w-10"
               />
             </button>
           </div>
